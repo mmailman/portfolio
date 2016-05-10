@@ -28,12 +28,12 @@ nav > ul {
   padding: 0;
   list-style: none;
   clear: both;
+  border-style: solid;
+  border-width: thin;
 }
 
 nav:hover ul {
   display: block;
-  border-style: solid;
-  border-width: thin;
 }
 
 nav > ul > li {
@@ -80,12 +80,14 @@ a:visited {
 @media only screen and (min-width: 600px) {
   nav > ul {
     display: block;
+    border: none;
   }
 
   nav > ul > li {
     display: inline-block;
     border: none;
-    margin: 2.5% auto;
+    padding: 20px;
+    background-color: inherit;
   }
 
   .icon-menu {
