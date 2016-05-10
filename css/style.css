@@ -5,6 +5,7 @@ body {
 header {
   max-width: 100%;
   /*margin-bottom: 100px;*/
+  position: relative;
 }
 
 main {
@@ -33,6 +34,9 @@ nav > ul {
 }
 
 nav:hover ul {
+  position: absolute;
+  right: 0;
+  top: 20%;
   display: block;
 }
 
@@ -72,7 +76,9 @@ a:visited {
 }
 
 .icon-menu {
-  float: left;
+  position: absolute;
+  top: 0;
+  right: 0;
   font-size: 32px;
   margin-right: 15px;
 }
