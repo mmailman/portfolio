@@ -19,6 +19,10 @@ section {
   margin: 1%;
 }
 
+nav {
+  display: inline-block;
+}
+
 nav > ul {
   display: none;
   padding: 0;
