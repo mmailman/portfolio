@@ -4,7 +4,6 @@ body {
 
 header {
   max-width: 100%;
-  /*margin-bottom: 100px;*/
   position: relative;
 }
 
@@ -31,12 +30,12 @@ nav > ul {
   clear: both;
   border-style: solid;
   border-width: thin;
-}
-
-nav:hover ul {
   position: absolute;
   right: 0;
   top: 20%;
+}
+
+nav:hover ul {
   display: block;
 }
 
@@ -70,6 +69,10 @@ a:visited {
   color: #A1B5D8;
 }
 
+h3 {
+  display: inline;
+}
+
 .header-title {
   text-align: center;
   max-width: 100%;
@@ -83,10 +86,28 @@ a:visited {
   margin-right: 15px;
 }
 
+.template {
+  display: none;
+}
+
+.projectImage {
+  max-width: 100px;
+  object-fit: scale-down;
+}
+
+.projectUrl {
+  display: block;
+}
+
+.description {
+  border-style: none;
+}
+
 @media only screen and (min-width: 600px) {
   nav > ul {
     display: block;
     border: none;
+    position: static;
   }
 
   nav > ul > li {
