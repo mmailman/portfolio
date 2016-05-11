@@ -1,0 +1,35 @@
+nav:hover ul {
+  display: block;
+}
+
+a, a:link, a:active {
+  text-decoration: none;
+  color: #738290;
+}
+
+a:hover, a:focus {
+  color: #29506D;
+}
+
+a:visited {
+  color: #A1B5D8;
+}
+
+@media only screen and (min-width: 600px) {
+  nav > ul {
+    display: block;
+    border: none;
+    position: static;
+  }
+
+  nav > ul > li {
+    display: inline-block;
+    border: none;
+    padding: 20px;
+    background-color: inherit;
+  }
+
+  .icon-menu {
+    display: none;
+  }
+}

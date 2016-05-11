@@ -1,0 +1,38 @@
+body {
+  background-color: #E4F0D0;
+}
+
+header {
+  max-width: 100%;
+  position: relative;
+}
+
+main {
+  margin: 5%;
+}
+
+section {
+  background-color: #FFFCF7;
+  border-style: solid;
+  border-width: thin;
+  max-width: 100%;
+  margin: 1%;
+}
+
+img {
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+p {
+  text-indent: 1.5em;
+  margin: 1%;
+}
+
+h3 {
+  display: inline;
+}
+
+time {
+  margin-left: 2%;
+}
