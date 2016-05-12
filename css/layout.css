@@ -53,3 +53,7 @@ nav > ul > li {
 .description {
   border-style: none;
 }
+
+.main-section {
+  display:none;
+}
