@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/modules.css">
     <title>Portfolio of Michael Mailman</title>
+    <script id="project-template" type="text/x-handlebars-template">
+      <article>
+        <heading>
+          <img class="projectImage" src="{{imgPath}}" alt="{{projectName}}" />
+          <h3>{{projectName}}</h3>
+          <a class="projectUrl" href="{{projectUrl}}">{{projectUrl}}</a>
+          <time>{{lastUpdated}}</time>
+        </heading>
+        <section class="description">{{{description}}}</section>
+      </article>
+    </script>
   </head>
   <body>
     <header>
@@ -39,22 +50,13 @@
         </article>
       </section>
       <section class="main-section" id="projects">
-        <article class="template">
-          <header>
-            <img class="projectImage" src="" alt="" />
-            <h3></h3>
-            <a class="projectUrl" href=""></a>
-            <time></time>
-          </header>
-          <section class="description">
-          </section>
-        </article>
       </section>
     </main>
     <footer>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script type="text/javascript" src="js/projectData.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/sectionView.js"></script>

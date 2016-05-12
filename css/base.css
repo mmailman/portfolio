@@ -5,6 +5,8 @@ body {
 header {
   max-width: 100%;
   position: relative;
+  border-bottom-style: solid;
+  border-width: thin;
 }
 
 main {
