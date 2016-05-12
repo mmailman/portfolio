@@ -18,14 +18,15 @@
         <div class="icon-menu">
         </div>
         <ul>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="http://www.linkedin.com/in/mailmanmichael" class="icon-linkedin">LinkedIn</a></li>
+          <li class="tab" data-content="about-me"><a href="#">About Me</a></li>
+          <li class="tab" data-content="projects"><a href="#">Projects</a></li>
+          <li><a href="http://www.linkedin.com/in/mailmanmichael" class="icon-linkedin" target="blank">LinkedIn</a></li>
+          <li><a href="http://www.github.com/mmailman" class="icon-github" target="blank">Github</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section id="about-me">
+      <section class="main-section" id="about-me">
         <h3>About Me</h3>
         <img src="imgs/mailman.jpeg" alt="BAD PHOTO" />
         <article>
@@ -37,7 +38,7 @@
 
         </article>
       </section>
-      <section id="projects">
+      <section class="main-section" id="projects">
         <article class="template">
           <header>
             <img class="projectImage" src="" alt="" />
@@ -56,5 +57,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/projectData.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/sectionView.js"></script>
   </body>
 </html>
