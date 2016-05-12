@@ -14,8 +14,7 @@ Project.prototype.toHtml = function(){
 
   $newProject.find('img').attr('src', this.imgPath);
   $newProject.find('h3').html(this.projectName);
-  $newProject.find('a').attr('href', this.projectUrl).html(this.projectUrl); //experiment
-  // $newProject.find('a').html(this.projectUrl);
+  $newProject.find('a').attr('href', this.projectUrl).html(this.projectUrl);
   $newProject.find('time').html('Last updated: ' + this.lastUpdated);
   $newProject.find('.description').html(this.description);
 

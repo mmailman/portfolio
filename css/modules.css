@@ -16,8 +16,7 @@ a:visited {
 }
 
 .active a{
-  text-decoration:overline underline;
-  text-decoration-color: black;
+  color: black;
 }
 
 @media only screen and (min-width: 600px) {
@@ -36,5 +35,17 @@ a:visited {
 
   .icon-menu {
     display: none;
+  }
+
+  .active a{
+    color: #738290;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: thin;
+    border-color: black;
+  }
+
+  .active a:visited {
+    color: #A1B5D8;
   }
 }

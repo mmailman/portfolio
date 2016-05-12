@@ -4,7 +4,7 @@ viewSection.handleMainNav = function(){
   $('nav').on('click', '.tab', function(){
     var target = $(this);
     $('.main-section').hide();
-    $('nav').removeClass('active');
+    $('.tab').removeClass('active');
     $('.main-section').each(function(index){
       if($(this).attr('id') === target.attr('data-content')){
         $(target).addClass('active');
