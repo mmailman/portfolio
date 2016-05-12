@@ -8,6 +8,7 @@ viewSection.handleMainNav = function(){
     $('.main-section').each(function(index){
       if($(this).attr('id') === target.attr('data-content')){
         $(target).addClass('active');
+        console.log('parent: ' + target.parent().html());
         console.log('target: ' + target.html());
         $(this).fadeIn(2000);
       }
