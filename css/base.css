@@ -1,10 +1,13 @@
 body {
-  background-color: #E4F0D0;
+  background-color: #D1F5FF;
+  font-family: 'Helvetica';
 }
 
 header {
   max-width: 100%;
   position: relative;
+  border-bottom-style: solid;
+  border-width: thin;
 }
 
 main {
@@ -16,17 +19,19 @@ section {
   border-style: solid;
   border-width: thin;
   max-width: 100%;
-  margin: 1%;
+  margin: 2%;
+  border-radius: 2%;
 }
 
 img {
   max-width: 100%;
-  margin: 20px auto;
+  object-fit: scale-down;
+  margin: 2%;
 }
 
 p {
   text-indent: 1.5em;
-  margin: 1%;
+  margin: 2%;
 }
 
 h3 {

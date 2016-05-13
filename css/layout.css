@@ -34,8 +34,11 @@ nav > ul > li {
   margin-right: 15px;
 }
 
-.template {
-  display: none;
+.me-photo {
+  max-width: 250px;
+  object-fit: scale-down;
+  border-radius: 100%;
+  border: solid thin;
 }
 
 .projectImage {
@@ -56,4 +59,7 @@ nav > ul > li {
 
 .main-section {
   display:none;
+}
+
+.about-me p {
 }
