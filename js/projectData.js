@@ -1,5 +1,12 @@
 var projectData = [
   {
+    projectName: 'Portfolio',
+    imgPath: 'imgs/mailman.jpg',
+    lastUpdated: '2016/05/12',
+    projectUrl: 'https://github.com/mmailman/portfolio',
+    description: '<p>This is the ongoing re-occuring project for the Codefellows 301 course. It is a profile page to showcase my coding talents.</p>'
+  },
+  {
     projectName: 'Sasquatch Dice',
     imgPath: 'imgs/reallogo.png',
     lastUpdated: '2016/05/05',

@@ -1,5 +1,6 @@
 body {
-  background-color: #E4F0D0;
+  background-color: #D1F5FF;
+  font-family: 'Helvetica';
 }
 
 header {
@@ -18,18 +19,19 @@ section {
   border-style: solid;
   border-width: thin;
   max-width: 100%;
-  margin: 1%;
+  margin: 2%;
+  border-radius: 2%;
 }
 
 img {
-  max-width: 300px;
+  max-width: 100%;
   object-fit: scale-down;
   margin: 2%;
 }
 
 p {
   text-indent: 1.5em;
-  margin: 1%;
+  margin: 2%;
 }
 
 h3 {
