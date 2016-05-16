@@ -1,11 +1,9 @@
 var projects = [];
 
 function Project(project){
-  this.projectName = project.projectName;
-  this.imgPath = project.imgPath;
-  this.lastUpdated = project.lastUpdated;
-  this.projectUrl = project.projectUrl;
-  this.description = project.description;
+  for(key in project){
+    this[key] = project[key];
+  }
 
 }
 
