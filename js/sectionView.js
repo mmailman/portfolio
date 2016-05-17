@@ -8,7 +8,7 @@ viewSection.handleMainNav = function(){
     $('.main-section').each(function(index){
       if($(this).attr('id') === target.attr('data-content')){
         $(target).addClass('active');
-        $(this).fadeIn(2000);
+        $(this).fadeIn(500);
       }
     });
   });
