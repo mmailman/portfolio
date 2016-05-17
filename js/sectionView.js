@@ -14,7 +14,11 @@ viewSection.handleMainNav = function(){
   });
 };
 
-$(function(){
+viewSection.initIndexPage = function(){
   viewSection.handleMainNav();
+};
+
+$(function(){
+  viewSection.initIndexPage();
   $('nav').find('a', 'Projects').click();
 });
