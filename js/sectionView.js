@@ -25,7 +25,12 @@
   viewSection.renderStats = function () {
     var $source = $('#stats-template').html();
     var template = Handlebars.compile($source);
-    return template;
+    return template();
+  };
+
+  //Alternative method to display stats.
+  viewSection.displayStats = function(){
+    $('#stats-container').append('<p>Total Lines of code written across Projects: ' + Project.totalLines() + '</p>');
   };
 
   viewSection.initIndexPage = function(){

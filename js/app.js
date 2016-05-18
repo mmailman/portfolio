@@ -56,6 +56,6 @@
     }else{
       Project.getAll(next);
     }
-    module.Project = Project;
   };
+  module.Project = Project;
 })(window);
