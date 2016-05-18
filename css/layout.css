@@ -58,8 +58,8 @@ nav > ul > li {
 }
 
 .main-section {
-  display:none;
   border-radius: 2%;
+  display:none;
 }
 
 .about-me p {
