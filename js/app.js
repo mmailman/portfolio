@@ -1,6 +1,7 @@
+'use strict';
 (function(module){
   function Project(project){
-    for(key in project){
+    for(var key in project){
       this[key] = project[key];
     }
   }
