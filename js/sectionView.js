@@ -4,25 +4,18 @@
 
   viewSection.handleMainNav = function(){
     $('nav').on('click', '.tab', function(){
-      var target = $(this);
-      console.log(target);
+      var $target = $(this);
+      console.log($target);
       $('.main-section').hide();
       $('.tab').removeClass('active');
-      $('.main-section').each(function(index){
-        if($(this).attr('id') === target.attr('data-content')){
-          console.log('true');
-          $(target).addClass('active');
-          console.log($(this));
-          $('.main-section').hide();
-          $(this).fadeIn(500);
-          //Added this because dynamic addition of navbar tab items is currently non-functional.
-          if($('#projects').attr('style', 'display: block;')){
-            $('#stats').empty()
-            .append(viewSection.renderStats())
-            .fadeIn(500);
-          }
-        }
-      });
+      $($target).addClass('active');
+      $('#' + ($(this).attr('data-content'))).fadeIn(500);
+      //Added this because dynamic addition of navbar tab items is currently non-functional.
+      if($($target).attr('data-content') === 'projects'){
+        $('#stats').empty()
+        .append(viewSection.renderStats())
+        .fadeIn(500);
+      }
     });
   };
 
@@ -42,7 +35,7 @@
       $('#projects').append(project.toHtml());
     });
     viewSection.handleMainNav();
-    $('nav').find('a', 'Projects').click();
+    $('nav').find('a:contains("Projects")').click();
 
   };
 
