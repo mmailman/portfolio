@@ -25,7 +25,7 @@
   viewSection.renderStats = function () {
     var $source = $('#stats-template').html();
     var template = Handlebars.compile($source);
-    return template();
+    return template({totalLines: Project.totalLines});
   };
 
   //Alternative method to display stats.
