@@ -20,7 +20,6 @@ section {
   border-width: thin;
   max-width: 100%;
   margin: 2%;
-  border-radius: 2%;
 }
 
 img {
@@ -35,6 +34,7 @@ p {
 }
 
 h3 {
+  padding: 2.5%;
   display: inline;
 }
 

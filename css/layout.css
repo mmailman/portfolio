@@ -58,6 +58,7 @@ nav > ul > li {
 }
 
 .main-section {
+  border-radius: 20px;
   display:none;
 }
 
