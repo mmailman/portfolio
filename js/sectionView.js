@@ -25,11 +25,6 @@
     return template({totalLines: Project.totalLines});
   };
 
-  //Alternative method to display stats.
-  viewSection.displayStats = function(){
-    $('#stats-container').append('<p>Total Lines of code written across Projects: ' + Project.totalLines() + '</p>');
-  };
-
   viewSection.initIndexPage = function(){
     Project.all.forEach(function(project){
       $('#projects').append(project.toHtml());
