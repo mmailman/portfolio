@@ -23,7 +23,7 @@
   viewSection.renderStats = function () {
     var $source = $('#stats-template').html();
     var template = Handlebars.compile($source);
-    return template({totalLines: Project.totalLines});
+    return template({totalLines: Project.totalLines, projectStats: Project.collateTotals});
   };
 
   //Method that initializes the Index page, it is called upon page load.
