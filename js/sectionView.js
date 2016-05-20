@@ -10,7 +10,6 @@
       $('.tab').removeClass('active');
       $($target).addClass('active');
       $('#' + ($(this).attr('data-content'))).fadeIn(500);
-      //Added this because dynamic addition of navbar tab items is currently non-functional.
       if($($target).attr('data-content') === 'projects'){
         $('#stats').empty()
         .append(viewSection.renderStats())

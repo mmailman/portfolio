@@ -4,6 +4,7 @@
     for(var key in project){
       this[key] = project[key];
     }
+    this.projectTotal = Project.projectLines(this.code);
   }
 
   Project.all = [];
@@ -20,11 +21,15 @@
     });
   };
 
+  Project.projectLines = function(code){
+    return code.reduce(function(a, b){
+      return a + b;
+    });
+  };
+
   Project.totalLines = function(){
     return Project.all.map(function(project){
-      return project.code.reduce(function(a, b){
-        return a + b;
-      });
+      return project.projectTotal;
     }).reduce(function(a, b){
       return a + b;
     }, 0);
