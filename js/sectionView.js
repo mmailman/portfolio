@@ -2,6 +2,7 @@
 (function(module){
   var viewSection = {};
 
+  //Method that handles navbar interations.
   viewSection.handleMainNav = function(){
     $('nav').on('click', '.tab', function(){
       var $target = $(this);
@@ -10,7 +11,6 @@
       $('.tab').removeClass('active');
       $($target).addClass('active');
       $('#' + ($(this).attr('data-content'))).fadeIn(500);
-      //Added this because dynamic addition of navbar tab items is currently non-functional.
       if($($target).attr('data-content') === 'projects'){
         $('#stats').empty()
         .append(viewSection.renderStats())
@@ -19,24 +19,20 @@
     });
   };
 
+  //Method that renders the Stats section.
   viewSection.renderStats = function () {
     var $source = $('#stats-template').html();
     var template = Handlebars.compile($source);
-    return template({totalLines: Project.totalLines});
+    return template({totalLines: Project.totalLines, projectStats: Project.collateTotals});
   };
 
-  //Alternative method to display stats.
-  viewSection.displayStats = function(){
-    $('#stats-container').append('<p>Total Lines of code written across Projects: ' + Project.totalLines() + '</p>');
-  };
-
+  //Method that initializes the Index page, it is called upon page load.
   viewSection.initIndexPage = function(){
     Project.all.forEach(function(project){
       $('#projects').append(project.toHtml());
     });
     viewSection.handleMainNav();
     $('nav').find('a:contains("Projects")').click();
-
   };
 
   module.viewSection = viewSection;
