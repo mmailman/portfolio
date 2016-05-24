@@ -3,7 +3,7 @@
   var projectController = {};
 
   projectController.index = function(){
-    if($('#projects').length === 0){
+    if($('#projects article').length === 0){
       Project.fetchAll(viewSection.initIndexPage);
     }
     $('.tab').removeClass('active');
