@@ -14,8 +14,7 @@
     Project.all.forEach(function(project){
       $('#projects').append(project.toHtml());
     });
-    $('#stats').show();
-    $('#stats').empty().append(viewSection.renderStats());
+    $('#stats').show().empty().append(viewSection.renderStats());
 
     $('nav').find('a:contains("Projects")').click();
   };
