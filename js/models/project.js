@@ -42,7 +42,6 @@
   //Method to grab each project's total lines into a format that is usable for a handlebars template
   Project.collateTotals = function(){
     return Project.all.map(function(project){
-      // console.log(typeof(project.projectTotal));
       return ('<li>' + project.projectName + ': '+ project.projectTotal + ' lines</li>');
     }).reduce(function(a, b){
       return a + b;

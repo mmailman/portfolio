@@ -2,23 +2,6 @@
 (function(module){
   var viewSection = {};
 
-  //Method that handles navbar interations.
-  viewSection.handleMainNav = function(){
-    $('nav').on('click', '.tab', function(){
-      var $target = $(this);
-      console.log($target);
-      $('.main-section').hide();
-      $('.tab').removeClass('active');
-      $($target).addClass('active');
-      $('#' + ($(this).attr('data-content'))).fadeIn(500);
-      if($($target).attr('data-content') === 'projects'){
-        $('#stats').empty()
-        .append(viewSection.renderStats())
-        .fadeIn(500);
-      }
-    });
-  };
-
   //Method that renders the Stats section.
   viewSection.renderStats = function () {
     var $source = $('#stats-template').html();
@@ -31,7 +14,8 @@
     Project.all.forEach(function(project){
       $('#projects').append(project.toHtml());
     });
-    viewSection.handleMainNav();
+    $('#stats').show().empty().append(viewSection.renderStats());
+
     $('nav').find('a:contains("Projects")').click();
   };
 
