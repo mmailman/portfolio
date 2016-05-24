@@ -6,7 +6,6 @@
   viewSection.handleMainNav = function(){
     $('nav').on('click', '.tab', function(){
       var $target = $(this);
-      console.log($target);
       $('.main-section').hide();
       $('.tab').removeClass('active');
       $($target).addClass('active');
