@@ -5,8 +5,7 @@
   aboutController.index = function(){
     $('.tab').removeClass('active');
     $('li[data-content="about-me"]').addClass('active');
-    $('#projects').hide();
-    $('#stats').hide();
+    $('.main-section').hide();
     $('#about-me').show();
   };
 

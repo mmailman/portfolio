@@ -8,7 +8,7 @@
     }
     $('.tab').removeClass('active');
     $('li[data-content="projects"]').addClass('active');
-    $('#about-me').hide();
+    $('.main-section').hide();
     $('#projects').show();
     $('#stats').show();
   };
