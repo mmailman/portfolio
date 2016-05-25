@@ -8,7 +8,7 @@
   }
 
   Project.all = [];
-  Project.reposArray = [];
+  var reposArray = [];
 
   //Method that compiles the project template and returns it.
   Project.prototype.toHtml = function(){
@@ -94,8 +94,14 @@
       headers: {'Authorization': 'token ' + gitRepo.gitToken},
       success: function(data, message, xhr){
         console.log(data);
-        Project.reposArray = data.filter(function(repo){
+        reposArray = data.filter(function(repo){
           return repo.fork === false;
+        }).map(function(repo){
+          return {
+            name: repo.name,
+            updated_at: repo.updated_at,
+            html_url: repo.html_url
+          };
         });
         callback();
       }
@@ -104,7 +110,7 @@
 
   //Method to mutate the data in the Project.all property with updated information from the github /repos api
   Project.repoDataMerge = function(){
-    Project.reposArray.forEach(function(repo){
+    reposArray.forEach(function(repo){
       Project.all.forEach(function(project){
         if(repo.name === project.repoName){
           project.lastUpdated = new Date(repo.updated_at);
