@@ -8,6 +8,7 @@
   }
 
   Project.all = [];
+  Project.reposArray = [];
 
   //Method that compiles the project template and returns it.
   Project.prototype.toHtml = function(){
@@ -52,7 +53,9 @@
   Project.getAll = function(next){
     $.getJSON('/data/projectData.json', function(responseData) {
       Project.loadAll(responseData);
-      localStorage.projectData = JSON.stringify(responseData);
+      Project.requestRepos(Project.repoDataMerge);
+      // localStorage.projectData = JSON.stringify(responseData);
+      localStorage.projectData = JSON.stringify(Project.all);
       next();
     });
   };
@@ -78,5 +81,34 @@
       Project.getAll(next);
     }
   };
+
+  //Method that call upon the github /repos endpoint to get all the repositories sorted by last updated from my github account filtered by non fork repos.
+  Project.requestRepos = function(callback){
+    $.ajax({
+      url: 'https://api.github.com/users/' + gitRepo.gitUser + '/repos' + '?sort=updated',
+      type: 'GET',
+      headers: {'Authorization': 'token ' + gitRepo.gitToken},
+      success: function(data, message, xhr){
+        console.log(data);
+        Project.reposArray = data.filter(function(repo){
+          return repo.fork === false;
+        });
+        callback();
+      }
+    });
+  };
+
+  //Method to mutate the data in the Project.all property with updated information from the github /repos api
+  Project.repoDataMerge = function(){
+    Project.reposArray.forEach(function(repo){
+      Project.all.forEach(function(project){
+        if(repo.name === project.repoName){
+          project.lastUpdated = repo.updated_at;
+          project.repoUrl = repo.html_url;
+        }
+      });
+    });
+  };
+
   module.Project = Project;
 })(window);
