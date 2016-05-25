@@ -19,8 +19,8 @@
 
   //Method that populates the Project.all property
   Project.loadAll = function(data){
-    data.map(function(ele) {
-      Project.all.push(new Project(ele));
+    Project.all = data.map(function(ele) {
+      return new Project(ele);
     });
   };
 
@@ -53,13 +53,17 @@
   Project.getAll = function(next){
     $.getJSON('/data/projectData.json', function(responseData) {
       Project.loadAll(responseData);
-      Project.requestRepos(Project.repoDataMerge);
-      // localStorage.projectData = JSON.stringify(responseData);
-      localStorage.projectData = JSON.stringify(Project.all);
-      next();
+      Project.requestRepos(Project.updateData(next));
     });
   };
 
+  Project.updateData = function(next){
+    return function(){
+      Project.repoDataMerge();
+      localStorage.projectData = JSON.stringify(Project.all);
+      next();
+    };
+  };
   //Method that checks local storage for the data and determines if we use it or parse it from the json file.
   Project.fetchAll = function(next){
     if(localStorage.projectData){
@@ -103,7 +107,7 @@
     Project.reposArray.forEach(function(repo){
       Project.all.forEach(function(project){
         if(repo.name === project.repoName){
-          project.lastUpdated = repo.updated_at;
+          project.lastUpdated = new Date(repo.updated_at);
           project.repoUrl = repo.html_url;
         }
       });
