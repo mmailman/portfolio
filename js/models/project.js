@@ -88,24 +88,18 @@
 
   //Method that call upon the github /repos endpoint to get all the repositories sorted by last updated from my github account filtered by non fork repos.
   Project.requestRepos = function(callback){
-    $.ajax({
-      url: 'https://api.github.com/users/' + gitRepo.gitUser + '/repos' + '?sort=updated',
-      type: 'GET',
-      headers: {'Authorization': 'token ' + gitRepo.gitToken},
-      success: function(data, message, xhr){
-        console.log(data);
-        reposArray = data.filter(function(repo){
-          return repo.fork === false;
-        }).map(function(repo){
-          return {
-            name: repo.name,
-            updated_at: repo.updated_at,
-            html_url: repo.html_url
-          };
-        });
-        callback();
-      }
-    });
+    $.get('/github/users/mmailman/repos' + '?sort=updated')
+    .done(function(data){
+      reposArray = data.filter(function(repo){
+        return repo.fork === false;
+      }).map(function(repo){
+        return {
+          name: repo.name,
+          updated_at: repo.updated_at,
+          html_url: repo.html_url
+        };
+      });
+    }).done(callback);
   };
 
   //Method to mutate the data in the Project.all property with updated information from the github /repos api
