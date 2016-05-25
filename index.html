@@ -15,7 +15,8 @@
         <heading>
           <img class="projectImage" src="{{imgPath}}" alt="{{projectName}}" />
           <h3>{{projectName}}</h3>
-          <a class="projectUrl" href="{{projectUrl}}">{{projectUrl}}</a>
+          <a class="projectUrls" href="{{repoUrl}}">{{repoUrl}}</a>
+          <a class="projectUrls" href="{{liveUrl}}">{{liveUrl}}</a>
           <time>Last Updated: {{lastUpdated}}</time>
           <!-- <p>Lines of code written: </p> -->
         </heading>
@@ -74,6 +75,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <script src="/lib/scripts/page.js"></script>
 
+    <script type="text/javascript" src="/js/models/gitToken.js"></script>
     <script type="text/javascript" src="/js/models/project.js"></script>
     <script type="text/javascript" src="/js/views/sectionView.js"></script>
     <script type="text/javascript" src="/js/controllers/projectController.js"></script>

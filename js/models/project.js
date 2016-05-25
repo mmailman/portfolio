@@ -8,6 +8,7 @@
   }
 
   Project.all = [];
+  var reposArray = [];
 
   //Method that compiles the project template and returns it.
   Project.prototype.toHtml = function(){
@@ -18,8 +19,8 @@
 
   //Method that populates the Project.all property
   Project.loadAll = function(data){
-    data.map(function(ele) {
-      Project.all.push(new Project(ele));
+    Project.all = data.map(function(ele) {
+      return new Project(ele);
     });
   };
 
@@ -52,11 +53,17 @@
   Project.getAll = function(next){
     $.getJSON('/data/projectData.json', function(responseData) {
       Project.loadAll(responseData);
-      localStorage.projectData = JSON.stringify(responseData);
-      next();
+      Project.requestRepos(Project.updateData(next));
     });
   };
 
+  Project.updateData = function(next){
+    return function(){
+      Project.repoDataMerge();
+      localStorage.projectData = JSON.stringify(Project.all);
+      next();
+    };
+  };
   //Method that checks local storage for the data and determines if we use it or parse it from the json file.
   Project.fetchAll = function(next){
     if(localStorage.projectData){
@@ -78,5 +85,40 @@
       Project.getAll(next);
     }
   };
+
+  //Method that call upon the github /repos endpoint to get all the repositories sorted by last updated from my github account filtered by non fork repos.
+  Project.requestRepos = function(callback){
+    $.ajax({
+      url: 'https://api.github.com/users/' + gitRepo.gitUser + '/repos' + '?sort=updated',
+      type: 'GET',
+      headers: {'Authorization': 'token ' + gitRepo.gitToken},
+      success: function(data, message, xhr){
+        console.log(data);
+        reposArray = data.filter(function(repo){
+          return repo.fork === false;
+        }).map(function(repo){
+          return {
+            name: repo.name,
+            updated_at: repo.updated_at,
+            html_url: repo.html_url
+          };
+        });
+        callback();
+      }
+    });
+  };
+
+  //Method to mutate the data in the Project.all property with updated information from the github /repos api
+  Project.repoDataMerge = function(){
+    reposArray.forEach(function(repo){
+      Project.all.forEach(function(project){
+        if(repo.name === project.repoName){
+          project.lastUpdated = new Date(repo.updated_at);
+          project.repoUrl = repo.html_url;
+        }
+      });
+    });
+  };
+
   module.Project = Project;
 })(window);
